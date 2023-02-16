@@ -1,0 +1,21 @@
+<div class="row login">
+    <div class="col-md-4 imageLogin">
+        <img src="./assets/img/Web development.png" alt="">
+        <h1>Web Development</h1>
+    </div>
+    <div class="col-md-8 formLogin">
+        <h2>Sign in</h2>
+        <form [formGroup]="form" (ngSubmit)="signIn()">
+            <mat-form-field class="input" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput autocomplete="off" formControlName="userName">
+            </mat-form-field>
+            <mat-form-field class="input" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput autocomplete="off" type="password" formControlName="password">
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Sign In</button>
+        </form>
+        
+    </div>
+</div>
