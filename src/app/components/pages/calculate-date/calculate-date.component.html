@@ -1,0 +1,29 @@
+<div class="row dateC">
+    <div class="col-md-12 d-flex justify-content-center align-items-center flex-column">
+        <h1>Calcular Fecha</h1>
+      
+        <mat-form-field appearance="fill">
+            <mat-label>Elige una fecha</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="dateSel" >
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Seleccionar unidad</mat-label>
+            <mat-select [(ngModel)]="unit" >
+              
+              <mat-option value="day">Dia</mat-option>
+              <mat-option value="month">Mes</mat-option>
+              <mat-option value="year">Año</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="input" appearance="fill">
+            <mat-label>Cantidad a sumar</mat-label>
+            <input matInput autocomplete="off" type="number" [(ngModel)]="quantity">
+        </mat-form-field>
+        <button type="button" mat-raised-button color="primary" (click)="sum()">Sumar</button>
+        <p *ngIf="resDate != 0">El resultado es {{resDate | date: 'dd/MM/yyyy'}}</p>
+   
+    </div>
+</div>
