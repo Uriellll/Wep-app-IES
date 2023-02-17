@@ -1,21 +1,21 @@
 <div class="row login">
-    <div class="col-md-4 imageLogin">
-        <img src="./assets/img/Web development.png" alt="">
-        <h1>Web Development</h1>
+    <div class="col-4 d-none d-md-block imageLogin" *ngIf="!loading">
+       
     </div>
-    <div class="col-md-8 formLogin">
-        <h2>Sign in</h2>
+    <div class="col-md-8 formLogin" *ngIf="!loading">
+        <h2>Ingresar</h2>
         <form [formGroup]="form" (ngSubmit)="signIn()">
             <mat-form-field class="input" appearance="fill">
-                <mat-label>Username</mat-label>
+                <mat-label>Usuario</mat-label>
                 <input matInput autocomplete="off" formControlName="userName">
             </mat-form-field>
             <mat-form-field class="input" appearance="fill">
-                <mat-label>Password</mat-label>
+                <mat-label>Contraseña</mat-label>
                 <input matInput autocomplete="off" type="password" formControlName="password">
             </mat-form-field>
-            <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Sign In</button>
+            <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
         </form>
         
     </div>
+    <mat-spinner *ngIf="loading" diameter="50"></mat-spinner>
 </div>
