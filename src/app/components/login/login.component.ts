@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
     this.lS.login(this.login).subscribe(
       response=>{
         console.log(response);
+        localStorage.setItem('token', 'Hay login')
         this.load();
         
       },
@@ -43,10 +44,12 @@ export class LoginComponent implements OnInit {
         this.form.reset();
       }
     )
-
-
-
-
+  }
+  get userInvalid(){
+    return this.form.get('userName')?.invalid && this.form.get('userName')?.touched;
+  }
+  get passInvalid(){
+    return this.form.get('password')?.invalid && this.form.get('password')?.touched;
   }
   public load(){
     this.loading = true;

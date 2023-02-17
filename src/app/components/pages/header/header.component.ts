@@ -12,9 +12,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public logOut(){
-    this.router.navigate(['login']);
+  
+public logOut(){
+  localStorage.removeItem('token');
+  this.router.navigate(['login']);
 
-  }
+}
 
 }

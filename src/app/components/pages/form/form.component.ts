@@ -44,6 +44,7 @@ export class FormComponent implements OnInit {
         horizontalPosition:'center',
         verticalPosition: 'bottom'
       })
+      this.form.reset();
     }else{
       this._snackBar.open('Ocurrió un error, form inválido','',{
         duration:5000,
@@ -64,6 +65,18 @@ export class FormComponent implements OnInit {
         
 
   }) */
+  }
+  get nameInvalid(){
+    return this.form.get('name')?.invalid && this.form.get('name')?.touched;
+  }
+  get surnameInvalid(){
+    return this.form.get('surname')?.invalid && this.form.get('surname')?.touched;
+  }
+  get smokeInvalid(){
+    return this.form.get('smoke')?.invalid && this.form.get('smoke')?.touched;
+  }
+  get readInvalid(){
+    return this.form.get('read')?.invalid && this.form.get('read')?.touched;
   }
   get books(){
     return this.form.get('books') as FormArray;

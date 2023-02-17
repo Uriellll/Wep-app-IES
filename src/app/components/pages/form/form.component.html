@@ -4,27 +4,39 @@
         <form [formGroup]="form" class="col-12 col-md-6 d-flex flex-column justify-content-center"  (ngSubmit)="save()">
             <mat-form-field class="input" appearance="fill">
             <mat-label>Nombre</mat-label>
-                <input matInput autocomplete="off" formControlName="name">
+                <input matInput autocomplete="off" formControlName="name" [class.is-invalid]="nameInvalid">
+                <small *ngIf="nameInvalid" class="text-danger">
+                    El campo es requerido y el texto no debe contener espacios en blanco
+                  </small>
             </mat-form-field>
             <mat-form-field class="input" appearance="fill">
             <mat-label>Apellidos</mat-label>
-                <input matInput autocomplete="off"  formControlName="surname">
+                <input matInput autocomplete="off"  formControlName="surname" [class.is-invalid]="surnameInvalid">
+                <small *ngIf="surnameInvalid" class="text-danger">
+                    El campo es requerido y el texto no debe contener espacios en blanco
+                  </small>
             </mat-form-field>
             <mat-form-field appearance="fill">
-                <mat-label>Fumas</mat-label>
-                <mat-select formControlName="smoke">
+                <mat-label >Fumas</mat-label>
+                <mat-select formControlName="smoke" [class.is-invalid]="smokeInvalid">
                     <mat-option value="true">Si</mat-option>
                     <mat-option value="false">No</mat-option>
                 </mat-select>
+                <small *ngIf="smokeInvalid" class="text-danger">
+                    El campo es requerido
+                  </small>
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Prácticas Lectura</mat-label>
-                <mat-select formControlName="read">
+                <mat-select formControlName="read"  [class.is-invalid]="readInvalid">
                     <mat-option value="true">Si</mat-option>
                     <mat-option value="false">No</mat-option>
                 </mat-select>
+                <small *ngIf="readInvalid" class="text-danger">
+                    El campo es requerido
+                  </small>
                 </mat-form-field>
-            <div class="read" *ngIf="form.value.read == 'true'" >
+            <div class="read" *ngIf="form.get('read')?.value == 'true'">
                 Ingresa tus últimos 3 libros leídos
                 <table class="table">
                     <thead>
@@ -33,7 +45,7 @@
                         <th scope="col">Libro</th>
                       </tr>
                     </thead>
-                    <tbody formArrayName ="books">
+                    <tbody formArrayName ="books" >
                       <tr *ngFor = "let control of books.controls; let i = index">
                         <td>{{i + 1}}</td>
                         <td>

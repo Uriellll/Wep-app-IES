@@ -11,6 +11,7 @@ import { CoversionComponent } from './coversion/coversion.component';
 import { PagesComponent } from './pages.component';
 import { CalculateDateComponent } from './calculate-date/calculate-date.component';
 import { FormComponent } from './form/form.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormComponent } from './form/form.component';
     CoversionComponent,
     PagesComponent,
     CalculateDateComponent,
-    FormComponent
+    FormComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,

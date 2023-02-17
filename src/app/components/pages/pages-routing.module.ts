@@ -5,9 +5,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoversionComponent } from './coversion/coversion.component';
+import { AuthGuard } from 'src/app/services/auth.guard';
 
 const routes: Routes = [
-  {path:'', component: PagesComponent,children:[
+  {path:'', component: PagesComponent,canActivate:[AuthGuard], children:[
     {path: '', component: WelcomeComponent},
     {path: 'conversiones',component:CoversionComponent},
     {path:'fechas', component:CalculateDateComponent},

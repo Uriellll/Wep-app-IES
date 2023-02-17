@@ -4,7 +4,7 @@
     <div class="text">
     <h1>Bienvenido a mi <span>Portal</span></h1>
     <p>Nos podrías indicar tu nombre</p>
-    <p *ngIf="name">{{name | replace}}</p>
+    <p *ngIf="name">El nombre ingresado es {{name | replace}}</p>
     <button type="submit" mat-raised-button color="dark" (click)="openDialog()">Escribe tu nombre</button>
     
     
