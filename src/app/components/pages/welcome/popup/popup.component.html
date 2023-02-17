@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>¡Hola, Bienvenido!</h1>
+<div mat-dialog-content>
+  <p>¿Cuál es tu nombre?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+
+  <button mat-button (click)="closePopup()" >Ok</button>
+</div>
